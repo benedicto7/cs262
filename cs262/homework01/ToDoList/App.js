@@ -29,6 +29,29 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
+      {/* Write a task */}
+      <View style={styles.inputText}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.writeTaskWrapper}>
+
+          {/* Search bar */}
+          <TextInput
+            style={styles.input}
+            placeholder={'Write a task'}
+            onChangeText={(text) => setTask(text)}
+            value={task}>
+          </TextInput>
+
+          {/* Adds the task after user press add sign */}
+          <TouchableOpacity onPress={() => handleAddTask()}>
+            <View style={styles.addWrapper}>
+              <Text style={styles.addText}>+</Text>
+            </View>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+      </View>
+
       {/* Today's Task */}
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's Tasks</Text>
@@ -52,40 +75,23 @@ export default function App() {
           */}
         </View>
       </View>
-
-      {/* Write a task */}
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.writeTaskWrapper}>
-
-        {/* Search bar */}
-        <TextInput
-          style={styles.input}
-          placeholder={'Write a task'}
-          onChangeText={(text) => setTask(text)}
-          value={task}>
-        </TextInput>
-
-        {/* Adds the task after user press add sign */}
-        <TouchableOpacity onPress={() => handleAddTask()}>
-          <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
-          </View>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  inputText: {
+  },
+
   container: {
     flex: 1,
     backgroundColor: '#E8EAED'
   },
 
   tasksWrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20
+    paddingTop: 5,
+    paddingHorizontal: 20,
+    paddingLeft: 30,
   },
 
   sectionTitle: {
@@ -98,12 +104,11 @@ const styles = StyleSheet.create({
   },
 
   writeTaskWrapper: {
-    position: 'absolute',
-    bottom: 60,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 40
   },
 
   input: {
