@@ -1,30 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
+/*
+Author: Ben Elpidius, bee6
+Date: 23 Sept 2022
+*/
+
+import HomeScreen from "./screens/home";
+import DetailsScreen from "./screens/details";
+import Header from "./shared/header";
+import About from "./screens/about";
+
+import { Button, View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import Navigator from './routes/drawer';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const getFonts = () => Font.loadAsync({
-  'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
-  'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf'),
-});
+const Stack = createNativeStackNavigator();
 
-export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Players">
+        <Stack.Screen name="Players" component={HomeScreen}
+        options={({ navigation }) => ({
+          headerRight: () => (
+              <Header navigation={navigation}/>
+          )
+      })}
+        />
 
-  if (fontsLoaded) {
-    return (
-        <NavigationContainer>
-            <Navigator />
-        </NavigationContainer>
-    );
-  } else {
-    return (
-      <AppLoading
-        startAsync={getFonts}
-        onFinish={() => setFontsLoaded(true)}
-      />
-    )
-  }
+        <Stack.Screen name="Details" component={DetailsScreen}
+        options={({ navigation }) => ({
+          headerRight: () => (
+              <Header navigation={navigation}/>
+          )
+      })}/>
 
+        <Stack.Screen name="About" component={About} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
+
+export default App;

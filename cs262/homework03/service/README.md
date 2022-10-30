@@ -1,5 +1,3 @@
-https://damp-basin-56040.herokuapp.com/
-
 1. What are the (active) URLs for your data service?
    /players
    /players/[id]
