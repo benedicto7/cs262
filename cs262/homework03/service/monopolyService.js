@@ -22,7 +22,7 @@
 const pgp = require('pg-promise')();
 const db = pgp({
     host: process.env.DB_SERVER, //	peanut.db.elephantsql.com
-    port: process.env.DB_PORT, //5432
+    port: 5432,
     database: process.env.DB_USER,
     user: process.env.DB_USER, //zggmnmkr
     password: process.env.DB_PASSWORD //Xa697pyBTQ6H9mrRsiawNmClV-HWEwLN
