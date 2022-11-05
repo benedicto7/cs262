@@ -9,7 +9,7 @@ function HomeScreen({ navigation }) {
 
     const getMonopoly = async () => {
         try {
-         const response = await fetch('https://damp-basin-56040.herokuapp.com/players/');
+         const response = await fetch('https://secure-citadel-19798.herokuapp.com/players/');
          const json = await response.json();
          setData(json); // Remove .items
        } catch (error) {
