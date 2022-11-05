@@ -4,31 +4,29 @@
 -- @author kvlinden
 -- @version Summer, 2015
 --
-
 -- Get the number of Game records.
 SELECT *
-  FROM Game
-  ;
-
+FROM Game;
 -- Get the player records.
-SELECT * 
-  FROM Player
-  ;
-
+SELECT *
+FROM Player;
 -- Get all the users with Calvin email addresses.
 SELECT *
-  FROM Player
- WHERE email LIKE '%calvin%'
- ;
-
+FROM Player
+WHERE email LIKE '%calvin%';
 -- Get the highest score ever recorded.
-  SELECT score
-    FROM PlayerGame
+SELECT score
+FROM PlayerGame
 ORDER BY score DESC
-   LIMIT 1
-   ;
-
+LIMIT 1;
 -- Get the cross-product of all the tables.
 SELECT *
-  FROM Player, PlayerGame, Game
-  ;
+FROM Player,
+  PlayerGame,
+  Game;
+-- Get the PlayerGame records.
+SELECT *
+FROM PlayerGame;
+-- Get the PlayerProperty records
+SELECT *
+FROM PlayerProperty;

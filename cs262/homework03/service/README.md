@@ -1,17 +1,12 @@
 1. What are the (active) URLs for your data service?
 
    /players
-   
-   /players/[id]
-   
+
+   /players/:id
+
    /playergame
-   
-   /playergame/game=[id]
-   
-   /playergame/player=[id]
-   
-   /player_playergame
-   
+
+   /playerproperty
 
 2. Which of these endpoints implement actions that are idempotent? nullipotent?
 

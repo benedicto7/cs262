@@ -9,7 +9,7 @@ function HomeScreen({ navigation }) {
 
     const getMonopoly = async () => {
         try {
-         const response = await fetch('https://secure-citadel-19798.herokuapp.com/players/');
+         const response = await fetch('https://secure-citadel-19798.herokuapp.com/playergame/');
          const json = await response.json();
          setData(json); // Remove .items
        } catch (error) {
@@ -31,7 +31,7 @@ function HomeScreen({ navigation }) {
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate('Details', item)}>
-                <Text style={globalStyles.title}>{item.emailaddress}</Text>
+                <Text style={globalStyles.title}>{item.id}</Text>
             </TouchableOpacity>
           )}
         />

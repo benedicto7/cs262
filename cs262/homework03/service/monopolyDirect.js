@@ -16,8 +16,8 @@
 // Set up the database connection.
 const pgp = require('pg-promise')();
 const db = pgp({
-    host: "peanut.db.elephantsql.com",
-    port: 5432, //process.env.DB_PORT
+    host: process.env.DB_SERVER,
+    port: process.env.DB_PORT,
     database: process.env.DB_USER,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
