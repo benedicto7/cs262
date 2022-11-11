@@ -1,0 +1,17 @@
+Modules checked:
+	Upload.js
+	-fix index format
+	
+	Sell.js
+	-nothing
+	
+	Bookmark.js
+	-added space between return and (...), added space between closing tags
+
+Changes made:
+	-Accept format change
+
+Changes I chose not to make:
+
+Notes: 
+	-I used VS Code ESLint to re-format the code.
